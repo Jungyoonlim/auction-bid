@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "next dev"
   },
   "keywords": [],
   "author": "",
@@ -18,5 +19,8 @@
     "react-dom": "^18.2.0",
     "react-router": "^6.22.3",
     "typescript": "^5.4.4"
+  },
+  "devDependencies": {
+    "tailwindcss": "^3.4.3"
   }
 }
