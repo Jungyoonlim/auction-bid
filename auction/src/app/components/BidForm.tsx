@@ -1,29 +1,35 @@
+'use client';
+
 import React, { useState } from 'react';
 import { Form, Button } from 'react-bootstrap';
 import { GpuCluster } from '../types/GpuCluster';
+import { useRouter } from 'next/navigation';
 
 interface BidFormProps {
   gpuCluster: GpuCluster;
   onBidSubmit: (gpuCluster: GpuCluster, bidPrice: number) => void;
 }
 
-// Displaying and handling bid form. Takes in gpuCluster and onBidSubmit function as props. 
 const BidForm: React.FC<BidFormProps> = ({ gpuCluster, onBidSubmit }) => {
+  const [bidPrice, setBidPrice] = useState<number>(gpuCluster.currentBid || 0);
+  const router = useRouter();
 
-  const [bidPrice, setBidPrice] = useState(0);
-
-  // Handling bid price change
   const handleBidPriceChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setBidPrice(parseFloat(event.target.value));
   };
 
-  // Handling bid submit
-  const handleBidSubmit = (event: React.FormEvent) => {
-    event.preventDefault(); 
-    onBidSubmit(gpuCluster, bidPrice); 
+  const handleBidSubmit = async (event: React.FormEvent) => {
+    event.preventDefault();
+    try {
+      await onBidSubmit(gpuCluster, bidPrice);
+      alert('Bid placed successfully!');
+      router.push('/'); // Navigate to the home page after successful bid submission
+    } catch (error) {
+      console.error('Error placing bid:', error);
+      alert('Failed to place bid. Please try again.');
+    }
   };
 
-  // jsx for bid form
   return (
     <Form onSubmit={handleBidSubmit}>
       <Form.Group controlId="bidPrice">
@@ -33,11 +39,11 @@ const BidForm: React.FC<BidFormProps> = ({ gpuCluster, onBidSubmit }) => {
           value={bidPrice}
           onChange={handleBidPriceChange}
           step="0.01"
-          min="0"
+          min={gpuCluster.currentBid || 0}
           required
         />
       </Form.Group>
-      <Button variant="primary" type="submit">
+      <Button variant="primary" type="submit" disabled={bidPrice <= (gpuCluster.currentBid || 0)}>
         Place Bid
       </Button>
     </Form>
