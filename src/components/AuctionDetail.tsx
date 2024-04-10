@@ -2,7 +2,7 @@ import React from 'react';
 import { useParams } from 'react-router-dom';
 import { GpuCluster } from '../types';
 import BidForm from './BidForm';
-// import BidHistory from './BidHistory';
+import BidHistory from './BidHistory';
 
 interface Props {
   gpuClusters: GpuCluster[];
