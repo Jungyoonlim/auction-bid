@@ -1,6 +1,6 @@
 import React from 'react';
 import { useParams } from 'react-router-dom';
-import { GpuCluster } from '../types';
+import { GpuCluster } from '../types/GpuCluster';
 import BidForm from './BidForm';
 
 interface Props {
