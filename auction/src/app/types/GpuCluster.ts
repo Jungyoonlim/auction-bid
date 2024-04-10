@@ -1,3 +1,4 @@
+// Interface for GpuCluster type
 export interface GpuCluster {
     id: string;
     name: string;

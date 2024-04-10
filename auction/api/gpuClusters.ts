@@ -1,5 +1,6 @@
 import { GpuCluster } from '../src/app/types/GpuCluster'; 
 
+// Example Cluster Data 
 const gpuClusters: GpuCluster[] = [
     {
       "id": "1",
@@ -25,6 +26,7 @@ const gpuClusters: GpuCluster[] = [
     }
   ];
 
+  // fetchGpuClusters function
   export default async function fetchGpuClusters(): Promise<GpuCluster[]> {
     return gpuClusters;
   };

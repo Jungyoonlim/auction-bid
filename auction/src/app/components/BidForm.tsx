@@ -7,18 +7,23 @@ interface BidFormProps {
   onBidSubmit: (gpuCluster: GpuCluster, bidPrice: number) => void;
 }
 
+// Displaying and handling bid form. Takes in gpuCluster and onBidSubmit function as props. 
 const BidForm: React.FC<BidFormProps> = ({ gpuCluster, onBidSubmit }) => {
+
   const [bidPrice, setBidPrice] = useState(0);
 
+  // Handling bid price change
   const handleBidPriceChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setBidPrice(parseFloat(event.target.value));
   };
 
+  // Handling bid submit
   const handleBidSubmit = (event: React.FormEvent) => {
-    event.preventDefault();
-    onBidSubmit(gpuCluster, bidPrice);
+    event.preventDefault(); 
+    onBidSubmit(gpuCluster, bidPrice); 
   };
 
+  // jsx for bid form
   return (
     <Form onSubmit={handleBidSubmit}>
       <Form.Group controlId="bidPrice">

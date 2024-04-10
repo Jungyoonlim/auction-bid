@@ -1,13 +1,17 @@
 import React from 'react';
 import { GpuCluster } from '../types/GpuCluster';
 
+// Props for GPUGrid component - gpuClusters (array of GpuCluster objects) and onClusterClick
 interface Props {
-    gpuClusters: GpuCluster[];
-    onClusterClick: (cluster: GpuCluster) => void; 
+    gpuClusters: GpuCluster[]; // An array of GpuCluster objects.
+    onClusterClick: (cluster: GpuCluster) => void; // A function to handle click events on a cluster.
 }
 
+// Displaying GPU clusters in a grid. Takes in gpuClusters and onClusterClick function as props. 
 const GPUGrid: React.FC<Props> = ({ gpuClusters, onClusterClick }) => {
     return (
+      // jsx for gpu grid 
+      // mapping through gpuClusters and displaying each cluster in a div
       <div>
         {gpuClusters.map((gpu) => (
           <div
