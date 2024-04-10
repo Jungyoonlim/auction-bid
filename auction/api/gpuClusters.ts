@@ -1,5 +1,4 @@
-import { NextApiRequest, NextApiResponse } from 'next';
-import { GpuCluster } from '../types/GpuCluster'; 
+import { GpuCluster } from '../src/app/types/GpuCluster'; 
 
 const gpuClusters: GpuCluster[] = [
     {
@@ -26,7 +25,7 @@ const gpuClusters: GpuCluster[] = [
     }
   ];
 
-export default async (req: NextApiRequest, res: NextApiResponse) => {
-    res.status(200).json(gpuClusters);
+  export default async function fetchGpuClusters(): Promise<GpuCluster[]> {
+    return gpuClusters;
   };
 
