@@ -1,0 +1,53 @@
+.grid-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+  }
+  
+  .grid-item {
+    flex-basis: 45%; /* Adjust based on your layout preference */
+  }
+  
+  .gpu-card {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 15px;
+    overflow: hidden;
+    transition: transform 0.3s ease;
+  }
+  
+  .gpu-card:hover {
+    transform: translateY(-5px);
+  }
+  
+  .gpu-info p {
+    margin-bottom: 10px;
+  }
+  
+  .bid-button {
+    background-image: linear-gradient(to right, #007bff, #6610f2);
+    border: none;
+    border-radius: 25px;
+    padding: 10px 20px;
+    color: white;
+    transition: background-color 0.3s ease;
+  }
+  
+  .bid-button:hover {
+    background-image: linear-gradient(to right, #0056b3, #520dab);
+  }
+  
+  .success-badge {
+    background-color: #28a745;
+    color: white;
+    padding: 5px 10px;
+    border-radius: 10px;
+  }
+  
+  .danger-badge {
+    background-color: #dc3545;
+    color: white;
+    padding: 5px 10px;
+    border-radius: 10px;
+  }
+  

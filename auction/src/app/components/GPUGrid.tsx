@@ -3,6 +3,8 @@
 import React from 'react';
 import { GpuCluster } from '../types/GpuCluster';
 import { useRouter } from 'next/navigation';
+import { Card, Button, Badge } from 'react-bootstrap';
+import './GPUGrid.css';
 
 interface Props {
   gpuClusters: GpuCluster[];
@@ -17,24 +19,28 @@ const GPUGrid: React.FC<Props> = ({ gpuClusters, onClusterClick }) => {
   }
 
   return (
-    <div>
+    <div className="grid-container">
       {gpuClusters.map((gpu) => (
-        <div
-          key={gpu.id}
-          className="bg-white rounded-lg shadow-md p-4 mb-4 cursor-pointer"
-          onClick={() => onClusterClick(gpu)}
-        >
-          <h3 className="text-xl font-semibold mb-2">{gpu.name}</h3>
-          <p className="text-gray-600">GPU Type: {gpu.gpuType}</p>
-          <p className="text-gray-600">GPU Count: {gpu.gpuCount}</p>
-          <p className="text-gray-600">Current Bid: {gpu.currentBid}</p>
-          <p className={`text-${gpu.status === 'Available' ? 'green' : 'red'}-500`}>
-            Status: {gpu.status}
-          </p>
+        <div key={gpu.id} className="grid-item">
+          <Card className="gpu-card">
+            <Card.Body>
+              <Card.Title>{gpu.name}</Card.Title>
+              <Card.Text>
+                <div className="gpu-info">
+                  <p><strong>GPU Type:</strong> {gpu.gpuType}</p>
+                  <p><strong>GPU Count:</strong> {gpu.gpuCount}</p>
+                  <p><strong>Current Bid:</strong> {gpu.currentBid}</p>
+                  <Badge variant={gpu.status === 'Available' ? 'success-badge' : 'danger-badge'}>{gpu.status}</Badge>
+                </div>
+              </Card.Text>
+              <Button className="bid-button" onClick={() => onClusterClick(gpu)}>Place Bid</Button>
+            </Card.Body>
+          </Card>
         </div>
       ))}
     </div>
   );
 };
+
 
 export default GPUGrid;
