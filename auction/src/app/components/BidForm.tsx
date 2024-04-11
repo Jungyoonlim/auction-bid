@@ -32,7 +32,7 @@ const BidForm: React.FC<BidFormProps> = ({ gpuCluster, onBidSubmit }) => {
   return (
     <Card>
       <Card.Body>
-        <Card.Title>Place a Bid</Card.Title>
+        <Card.Title>Compute Information</Card.Title>
         <Card.Text>
           <p>
             <strong>GPU Cluster:</strong> {gpuCluster.name}

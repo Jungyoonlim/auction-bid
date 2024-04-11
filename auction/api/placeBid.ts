@@ -2,9 +2,7 @@
 import { NextApiRequest, NextApiResponse } from 'next';
 import { fetchGpuClusters } from './gpuClusters';
 
-// This API route is responsible for placing a bid on a GPU cluster. 
-// Receives a POST request with gpuClusterId and bidPrice.
-// Then updates the currentBid property of the GPU cluster with the new bid price.
+// An API route for placing a bid on a GPU cluster. 
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
   if (req.method === 'POST') {
     // Extracting gpuClusterId and bidPrice from the request body

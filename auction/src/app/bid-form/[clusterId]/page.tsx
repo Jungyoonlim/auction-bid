@@ -22,7 +22,7 @@ const BidFormPage: React.FC<BidFormPageProps> = async ({ params }) => {
     // JSX Form 
     return(
         <div>
-            <div className="p-5 bg-blue-100 rounded-lg shadow-md">
+            <div className="p-5 rounded-lg shadow-md">
                 <h1 className="text-3xl font-bold text-center mb-4">Bid Form</h1> 
                 <BidFormWrapper gpuCluster={gpuCluster} /> 
             </div>

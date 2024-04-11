@@ -8,6 +8,8 @@ import GPUGridWrapper from './components/GPUGridWrapper';
 import { Container, Row, Col } from 'react-bootstrap';
 import { useRouter } from 'next/navigation';
 
+// Main Page of the application.
+// Displays all the available compute that will lead to bid forms. 
 const PageContent = () => {
   const [gpuClusters, setGpuClusters] = useState<GpuCluster[]>([]);
   const router = useRouter();
@@ -26,10 +28,10 @@ const PageContent = () => {
 
   return (
     <Container className="py-4">
-      <h1 className="text-4xl font-bold mb-4">GPU Cluster Auction</h1>
+      <h1 className="text-4xl text-center font-bold mb-4">San Francisco Compute Exchange</h1>
       <Row>
         <Col md={6}>
-          <h2 className="text-2xl font-semibold mb-2">Available GPU Clusters</h2>
+          <h2 className="text-2xl text-center font-semibold mb-2">Available GPU Clusters</h2>
           <GPUGridWrapper gpuClusters={gpuClusters} onClusterClick={handleClusterClick} />
         </Col>
       </Row>

@@ -3,6 +3,7 @@
 import BidForm from './BidForm';
 import { GpuCluster } from '../types/GpuCluster';
 import { useRouter } from 'next/navigation';
+import styles from './BidFormWrapper.module.css';
 
 // BidFormWrapperProps interface 
 interface BidFormWrapperProps {
@@ -36,7 +37,11 @@ const BidFormWrapper: React.FC<BidFormWrapperProps> = ({ gpuCluster }) => {
     }
   };
 
-  return <BidForm gpuCluster={gpuCluster} onBidSubmit={handleBidSubmit} />;
+  return (
+    <div className={styles.bidFormWrapper}>
+      <BidForm gpuCluster={gpuCluster} onBidSubmit={handleBidSubmit} />
+    </div>
+  )
 };
 
 export default BidFormWrapper;
