@@ -1,12 +1,11 @@
 'use client';
 
 import { GpuCluster } from './types/GpuCluster';
-import { fetchGpuClusters } from '../../api/gpuClusters';
+import {fetchGpuClusters} from '../../api/gpuClusters';
 import React, { useEffect, useState } from 'react';
 import GPUGridWrapper from './components/GPUGridWrapper';
 import { Container, Row, Col } from 'react-bootstrap';
 import SelectedGpuClusterWrapper from './components/SelectedGpuClusterWrapper';
-import ClusterNavigation from './components/clusterNav';
 import { useRouter } from 'next/navigation';
 
 const PageContent = () => {
@@ -33,9 +32,7 @@ const PageContent = () => {
       <Row>
         <Col md={6}>
           <h2 className="text-2xl font-semibold mb-2">Available GPU Clusters</h2>
-          <GPUGridWrapper gpuClusters={gpuClusters} onClusterClick={handleClusterClick}>
-            <ClusterNavigation gpuClusters={gpuClusters} onClusterClick={handleClusterClick} />
-          </GPUGridWrapper>
+          <GPUGridWrapper gpuClusters={gpuClusters} onClusterClick={handleClusterClick} />
         </Col>
       </Row>
     </Container>

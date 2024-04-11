@@ -7,7 +7,7 @@ import GpuGrid from './GPUGrid';
 interface Props {
   gpuClusters: GpuCluster[];
   onClusterClick: (cluster: GpuCluster) => void;
-  children: React.ReactNode; 
+  children?: React.ReactNode; 
 }
 
 const GPUGridWrapper: React.FC<Props> = ({ gpuClusters, onClusterClick, children }) => {
