@@ -6,7 +6,7 @@ import React, { useEffect, useState } from 'react';
 import GPUGridWrapper from './components/GPUGridWrapper';
 import { Container, Row, Col } from 'react-bootstrap';
 import SelectedGpuClusterWrapper from './components/SelectedGpuClusterWrapper';
-import ClusterNavigation from './components/ClusterNav';
+import ClusterNavigation from './components/clusterNav';
 import { useRouter } from 'next/navigation';
 
 const PageContent = () => {
@@ -15,8 +15,7 @@ const PageContent = () => {
   const router = useRouter();
 
   const handleClusterClick = (cluster: GpuCluster) => {
-    // Add any additional logic or state updates here
-    router.push(`/bid-form?clusterId=${cluster.id}`);
+    router.push(`/bid-form/${cluster.id}`);
   };
 
   useEffect(() => {
@@ -37,9 +36,6 @@ const PageContent = () => {
           <GPUGridWrapper gpuClusters={gpuClusters} onClusterClick={handleClusterClick}>
             <ClusterNavigation gpuClusters={gpuClusters} onClusterClick={handleClusterClick} />
           </GPUGridWrapper>
-        </Col>
-        <Col md={6}>
-          <SelectedGpuClusterWrapper selectedGpuCluster={selectedGpuCluster} />
         </Col>
       </Row>
     </Container>

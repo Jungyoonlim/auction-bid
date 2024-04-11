@@ -1,15 +1,15 @@
 'use client';
 
-import { useRouter } from 'next/navigation';
 import BidForm from './BidForm';
 import { GpuCluster } from '../types/GpuCluster';
+import { useRouter } from 'next/navigation';
 
 interface BidFormWrapperProps {
   gpuCluster: GpuCluster;
 }
 
 const BidFormWrapper: React.FC<BidFormWrapperProps> = ({ gpuCluster }) => {
-  const router = useRouter();
+  const router = useRouter(); 
 
   const handleBidSubmit = async (gpuCluster: GpuCluster, bidPrice: number) => {
     try {
@@ -22,7 +22,7 @@ const BidFormWrapper: React.FC<BidFormWrapperProps> = ({ gpuCluster }) => {
       });
       if (response.ok) {
         alert('Bid placed successfully!');
-        router.push('/'); // Navigate to the home page after successful bid submission
+        router.push('/');
       } else {
         console.error('Error placing bid:', response.statusText);
         alert('Failed to place bid. Please try again.');

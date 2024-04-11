@@ -1,6 +1,5 @@
 import { GpuCluster } from '../src/app/types/GpuCluster'; 
 
-// Example Cluster Data 
 const gpuClusters: GpuCluster[] = [
     {
       "id": "1",
