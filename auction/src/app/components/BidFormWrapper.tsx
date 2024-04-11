@@ -13,6 +13,7 @@ interface BidFormWrapperProps {
 const BidFormWrapper: React.FC<BidFormWrapperProps> = ({ gpuCluster }) => {
   const router = useRouter(); 
 
+  // Handles the submission of a bid of a GPU cluster. 
   const handleBidSubmit = async (gpuCluster: GpuCluster, bidPrice: number) => {
     try {
       const response = await fetch('/api/placeBid', {

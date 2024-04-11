@@ -6,16 +6,19 @@ import { Card, Button, Badge } from 'react-bootstrap';
 import { AiOutlineShoppingCart } from 'react-icons/ai';
 import './GPUGrid.css';
 
+// Interface with the properties expected by the GPUGrid component.
 interface Props {
   gpuClusters: GpuCluster[];
   onClusterClick: (cluster: GpuCluster) => void;
 }
 
+// Renders a GPU grid based on the GPU clusters data 
 const GPUGrid: React.FC<Props> = ({ gpuClusters, onClusterClick }) => {
   if (!Array.isArray(gpuClusters)) {
     return <p>No GPU clusters available.</p>;
   }
 
+  // GPU Grid Map 
   return (
     <div className="grid">
       {gpuClusters.map((gpu) => (
