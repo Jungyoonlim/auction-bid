@@ -16,10 +16,10 @@ const ClusterNavigation: React.FC<ClusterNavigationProps> = ({ gpuClusters, onCl
           onClick={() => onClusterClick(cluster)}
           style={{ cursor: 'pointer' }}
         >
-          <h3>{cluster.name}</h3>
-          <p>GPU Type: {cluster.gpuType}</p>
-          <p>GPU Count: {cluster.gpuCount}</p>
-          <p>Current Bid: {cluster.currentBid}</p>
+          <h3 className="text-purple-xl font-semibold mb-2">{cluster.name}</h3>
+          <p className="text-gray-700 text-base mb-1">GPU Type: {cluster.gpuType}</p>
+          <p className="text-gray-700 text-base mb-1">GPU Count: {cluster.gpuCount}</p>
+          <p className="text-gray-700 text-base mb-1">Current Bid: {cluster.currentBid}</p>
         </div>
       ))}
     </div>

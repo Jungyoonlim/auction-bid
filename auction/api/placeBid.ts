@@ -1,6 +1,6 @@
 // pages/api/placeBid.ts
 import { NextApiRequest, NextApiResponse } from 'next';
-import fetchGpuClusters from './gpuClusters';
+import { fetchGpuClusters } from './gpuClusters';
 
 // This API route is responsible for placing a bid on a GPU cluster. 
 // Receives a POST request with gpuClusterId and bidPrice.

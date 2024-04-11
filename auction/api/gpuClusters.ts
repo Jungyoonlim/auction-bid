@@ -26,7 +26,12 @@ const gpuClusters: GpuCluster[] = [
   ];
 
   // fetchGpuClusters function
-  export default async function fetchGpuClusters(): Promise<GpuCluster[]> {
+  export async function fetchGpuClusters(): Promise<GpuCluster[]> {
     return gpuClusters;
   };
 
+
+// fetchGpuClusterbyId function
+  export async function fetchGpuClusterbyId(clusterId: string): Promise<GpuCluster | undefined>{
+    return gpuClusters.find((cluster) => cluster.id === clusterId);
+  }

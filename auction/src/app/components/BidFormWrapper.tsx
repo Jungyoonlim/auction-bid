@@ -4,10 +4,12 @@ import BidForm from './BidForm';
 import { GpuCluster } from '../types/GpuCluster';
 import { useRouter } from 'next/navigation';
 
+// BidFormWrapperProps interface 
 interface BidFormWrapperProps {
   gpuCluster: GpuCluster;
 }
 
+// Handles the submission of a bid of a GPU cluster. 
 const BidFormWrapper: React.FC<BidFormWrapperProps> = ({ gpuCluster }) => {
   const router = useRouter(); 
 

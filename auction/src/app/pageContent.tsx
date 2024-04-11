@@ -1,7 +1,7 @@
 'use client';
 
 import { GpuCluster } from './types/GpuCluster';
-import fetchGpuClusters from '../../api/gpuClusters';
+import { fetchGpuClusters } from '../../api/gpuClusters';
 import React, { useEffect, useState } from 'react';
 import GPUGridWrapper from './components/GPUGridWrapper';
 import { Container, Row, Col } from 'react-bootstrap';
