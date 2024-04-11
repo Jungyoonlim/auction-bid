@@ -14,7 +14,7 @@ const BidForm: React.FC<BidFormProps> = ({ gpuCluster, onBidSubmit }) => {
   const [bidPrice, setBidPrice] = useState<number>(gpuCluster.currentBid || 0);
   const router = useRouter();
 
-  
+
   const handleBidPriceChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setBidPrice(parseFloat(event.target.value));
   };
@@ -31,6 +31,7 @@ const BidForm: React.FC<BidFormProps> = ({ gpuCluster, onBidSubmit }) => {
     }
   };
 
+  // TODO: Place Bid Button - postgreSQL, update the design for BidForm. 
   return (
     <Form onSubmit={handleBidSubmit}>
       <Form.Group controlId="bidPrice">

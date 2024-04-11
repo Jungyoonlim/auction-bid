@@ -1,5 +1,6 @@
 'use client';
 
+import './pageContent.css'; 
 import { GpuCluster } from './types/GpuCluster';
 import {fetchGpuClusters} from '../../api/gpuClusters';
 import React, { useEffect, useState } from 'react';
