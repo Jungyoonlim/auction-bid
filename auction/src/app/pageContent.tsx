@@ -5,12 +5,10 @@ import {fetchGpuClusters} from '../../api/gpuClusters';
 import React, { useEffect, useState } from 'react';
 import GPUGridWrapper from './components/GPUGridWrapper';
 import { Container, Row, Col } from 'react-bootstrap';
-import SelectedGpuClusterWrapper from './components/SelectedGpuClusterWrapper';
 import { useRouter } from 'next/navigation';
 
 const PageContent = () => {
   const [gpuClusters, setGpuClusters] = useState<GpuCluster[]>([]);
-  const [selectedGpuCluster, setSelectedGpuCluster] = useState<GpuCluster | null>(null);
   const router = useRouter();
 
   const handleClusterClick = (cluster: GpuCluster) => {
@@ -21,7 +19,6 @@ const PageContent = () => {
     const fetchData = async () => {
       const fetchedGpuClusters = await fetchGpuClusters();
       setGpuClusters(fetchedGpuClusters);
-      setSelectedGpuCluster(getSelectedGpuCluster());
     };
     fetchData();
   }, []);
@@ -39,21 +36,6 @@ const PageContent = () => {
   );
 };
 
-// Function to get the selected GPU cluster from the server
-function getSelectedGpuCluster(): GpuCluster | null {
-  // Replace this with your server-side logic to fetch the selected GPU cluster
-  // For demonstration purposes, let's assume it returns a sample GPU cluster object
-  return {
-    id: "1",
-    name: 'Sample Cluster',
-    gpuType: 'Sample GPU',
-    gpuCount: 4,
-    currentBid: 100,
-    startTime: new Date(),
-    endTime: new Date(),
-    bidPrice: 100,
-    status: 'available',
-  };
-}
+
 
 export default PageContent;

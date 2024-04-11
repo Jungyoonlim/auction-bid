@@ -1,53 +1,144 @@
-.grid-container {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 20px;
-    justify-content: center;
+:root {
+    --color-primary: #7bb570; 
+    --color-danger: #f44336; 
+    --color-text: #333; 
+    --color-subtext: #666; 
+    --color-background: #f9f9f9; 
+    --shadow-card: 0 8px 24px rgba(0, 0, 0, 0.1); 
+    --shadow-button: 0 4px 14px rgba(0, 0, 0, 0.1); 
+    --transition-fast: 0.2s ease-in-out; 
+    --border-radius-card: 8px; 
+    --button-border-color: #d4e9e2; 
+    --button-color: #add1a5; 
+    --button-hover-color: #4cae4c; 
+    --button-background-color: #fff; 
+    --button-background-hover-color: #e6f5ee; 
+    --exact-match-color: #dff0d8;
+    --exact-match-border-color: #d6e9c6; 
+    --color-primary-text: #3c763d; 
   }
   
-  .grid-item {
-    flex-basis: 45%; /* Adjust based on your layout preference */
+  .grid {
+    display: block;
+    max-width: 600px; 
+    margin: 0 auto; 
+    padding: 2rem; 
+  }
+
+  .grid-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 0;
+    margin-bottom: 2rem; 
   }
   
   .gpu-card {
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    border-radius: 15px;
-    overflow: hidden;
-    transition: transform 0.3s ease;
+    width: calc(100% - 3rem);
+    margin: 1.5rem auto;
+    text-align: left;
+    border: 1px solid #ddd; 
+    background: var(--color-background);
+    border-radius: var(--border-radius-card);
+    box-shadow: var(--shadow-card);
+    padding: 1.5rem;
+    background-color:white; 
+    transition: box-shadow var(--transition-fast);
   }
+
+  .gpu-card.exact-match {
+    border-color: var(--exact-match-border-color);
+    background-color: var(--exact-match-color);
+  }
+  
   
   .gpu-card:hover {
-    transform: translateY(-5px);
+    box-shadow: 0 12px 28px rgba(0, 0, 0, 0.15); 
   }
   
-  .gpu-info p {
-    margin-bottom: 10px;
+  .gpu-title {
+    font-size: 1.5rem;
+    color: var(--color-text);
+    margin-bottom: 1rem;
   }
   
-  .bid-button {
-    background-image: linear-gradient(to right, #007bff, #6610f2);
-    border: none;
-    border-radius: 25px;
-    padding: 10px 20px;
+  .gpu-details p {
+    font-size: 1rem;
+    color: var(--color-subtext);
+    margin-bottom: 0.5rem;
+  }
+  
+  .status-badge {
+    display: inline-block;
+    padding: 0.375rem 0.75rem;
+    margin-top: 1rem;
+    border-radius: 1rem;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+    transition: background-color var(--transition-fast);
+  }
+  
+  .status-badge.available {
+    background-color: var(--color-primary);
     color: white;
-    transition: background-color 0.3s ease;
+  }
+  
+  .status-badge.unavailable {
+    background-color: var(--color-danger);
+    color: white;
+  }
+
+  .bid-button {
+    background-color: var(--button-background-color);
+    color: var(--button-text-color);
+    border: 1px solid var(--button-border-color);
+    border-radius: 20px; /* More rounded corners */
+    padding: 0.75rem 2rem;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    box-shadow: none; 
+    font-size: 1rem;
+    font-weight: bold; 
+    transition: background-color var(--transition-fast), box-shadow var(--transition-fast);
+    position: relative; 
+    cursor: pointer;
+    display: inline-flex; 
+    align-items: center;
+    justify-content: center;
+    overflow: hidden; 
   }
   
   .bid-button:hover {
-    background-image: linear-gradient(to right, #0056b3, #520dab);
+    background-color: var(--button-background-hover-color);  
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   }
   
-  .success-badge {
-    background-color: #28a745;
-    color: white;
-    padding: 5px 10px;
-    border-radius: 10px;
+  .bid-button::after {
+    content: '';
+    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" fill="%23000000" viewBox="0 0 24 24"><path d="M8.59 16.59L13.17 12 8.59 7.41 10 6l6 6-6 6z"/></svg>');
+    background-repeat: no-repeat;
+    background-position: center;
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    transition: right var(--transition-fast);
+    width: 24px; 
+    height: 24px; 
   }
   
-  .danger-badge {
-    background-color: #dc3545;
-    color: white;
-    padding: 5px 10px;
-    border-radius: 10px;
+  
+  .bid-button:hover::after {
+    right: 8px; 
   }
   
+  
+  @media (max-width: 768px) {
+    .grid {
+      padding: 1rem; 
+    }
+  
+    .gpu-card {
+      width: calc(100% - 2rem); 
+      margin: 1rem auto; 
+    }
+  }
