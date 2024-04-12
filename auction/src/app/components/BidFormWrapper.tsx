@@ -22,7 +22,7 @@ const BidFormWrapper: React.FC<BidFormWrapperProps> = ({ gpuCluster }) => {
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify({ gpuClusterId: gpuCluster.id, bidPrice }),
+        body: JSON.stringify({ gpuClusterId: gpuCluster.id, bidPrice, selectedHours }),
       });
       if (response.ok) {
         alert('Bid placed successfully!');
