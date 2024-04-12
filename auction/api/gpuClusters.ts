@@ -4,13 +4,13 @@ import { GpuCluster } from '../src/app/types/GpuCluster';
 const gpuClusters: GpuCluster[] = [
     {
       "id": "1",
-      "name": "Cluster A",
+      "name": "Dolores Park",
       "gpuType": "H100",
       "gpuCount": 8,
       "nodes": 8,
       "currentBid": 2000,
-      "startTime": new Date('2024-06-16T12:59:00Z'),
-      "endTime": new Date('2024-06-16T20:59:00Z'),
+      "startTime": new Date('June 16, 2024 12:59 AM'),
+      "endTime": new Date('June 16, 2024 8:59 AM'),
       "bidPrice": 2000,
       "status": "Available",
       "availableHour": [
@@ -21,13 +21,13 @@ const gpuClusters: GpuCluster[] = [
     },
     {
       "id": "2",
-      "name": "Cluster B",
+      "name": "Chrissy Field",
       "gpuType": "RTX 2080 Ti",
       "gpuCount": 8,
       "nodes": 4,
       "currentBid": 1500,
       "startTime": new Date('2024-06-29T03:00:00Z'),
-      "endTime": new Date('2024-06-16T08:00:00Z'),
+      "endTime": new Date('2024-06-296T08:00:00Z'),
       "bidPrice": 1500,
       "status": "Unavailable",
       "availableHour": [

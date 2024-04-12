@@ -18,7 +18,6 @@ const GPUGrid: React.FC<Props> = ({ gpuClusters, onClusterClick }) => {
     return <p>No GPU clusters available.</p>;
   }
 
-  // GPU Grid Map 
   return (
     <div className="grid">
       {gpuClusters.map((gpu) => (
@@ -26,9 +25,8 @@ const GPUGrid: React.FC<Props> = ({ gpuClusters, onClusterClick }) => {
           <Card.Body>
             <Card.Title className="gpu-title">{gpu.name}</Card.Title>
             <Card.Text className="gpu-details">
-              <p><strong>GPU Type:</strong> {gpu.gpuType}</p>
-              <p><strong>GPU Count:</strong> {gpu.gpuCount}</p>
-              <p><strong>Current Bid:</strong> {gpu.currentBid}</p>
+              <p><strong>{gpu.startTime.toLocaleString()} - {gpu.endTime.toLocaleString()}</strong></p>
+              <p>{gpu.nodes} nodes of {gpu.gpuCount}x {gpu.gpuType}</p>
             </Card.Text>
             <Badge className={`status-badge ${gpu.status.toLowerCase()}`}>
               {gpu.status}
@@ -43,6 +41,5 @@ const GPUGrid: React.FC<Props> = ({ gpuClusters, onClusterClick }) => {
     </div>
   );
 };
-
 
 export default GPUGrid;
