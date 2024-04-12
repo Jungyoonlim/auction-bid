@@ -15,7 +15,7 @@ const BidFormWrapper: React.FC<BidFormWrapperProps> = ({ gpuCluster }) => {
   const router = useRouter(); 
 
   // Handles the submission of a bid of a GPU cluster. 
-  const handleBidSubmit = async (gpuCluster: GpuCluster, bidPrice: number) => {
+  const handleBidSubmit = async (gpuCluster: GpuCluster, bidPrice: number, selectedHours: number[]) => {
     try {
       const response = await fetch('/api/placeBid', {
         method: 'POST',
