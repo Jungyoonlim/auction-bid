@@ -1,5 +1,6 @@
 import { GpuCluster } from '../src/app/types/GpuCluster'; 
 
+// Example Array of GPU clusters
 const gpuClusters: GpuCluster[] = [
     {
       "id": "1",
@@ -10,7 +11,12 @@ const gpuClusters: GpuCluster[] = [
       "startTime": new Date(),
       "endTime": new Date(),
       "bidPrice": 2000,
-      "status": "Available"
+      "status": "Available",
+      "availableHour": [
+        { "hour": 1, "price": 2000 },
+        { "hour": 2, "price": 4000 },
+        { "hour": 3, "price": 6000 }
+      ]
     },
     {
       "id": "2",
@@ -21,7 +27,12 @@ const gpuClusters: GpuCluster[] = [
       "startTime": new Date(),
       "endTime": new Date(),
       "bidPrice": 1500,
-      "status": "Unavailable"
+      "status": "Unavailable",
+      "availableHour": [
+        { "hour": 1, "price": 1500 },
+        { "hour": 2, "price": 3000 },
+        { "hour": 3, "price": 4500 }
+      ]
     }
   ];
 
