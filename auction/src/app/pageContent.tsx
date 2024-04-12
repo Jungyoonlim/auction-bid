@@ -5,7 +5,6 @@ import { GpuCluster } from './types/GpuCluster';
 import { fetchGpuClusters } from '../../api/gpuClusters';
 import React, { useEffect, useState } from 'react';
 import GPUGridWrapper from './components/GPUGridWrapper';
-import { Container, Row, Col } from 'react-bootstrap';
 import { useRouter } from 'next/navigation';
 
 // Main Page of the application.
@@ -29,15 +28,14 @@ const PageContent = () => {
 
   // jsx 
   return (
-    <Container className="py-4">
-      <h1 className="text-4xl text-center font-bold mb-4">San Francisco Compute Exchange</h1>
-      <Row>
-        <Col md={6}>
-          <h2 className="text-2xl text-center font-semibold mb-2">Available GPU Clusters</h2>
+    <div className="py-8 px-4 max-w-screen-xl mx-auto">
+      <h3 className="text-3xl font-bold text-center text-gray-800 mb-4" style={{ fontFamily: 'Arial, sans-serif' }}>San Francisco Compute Exchange</h3>
+      <div className="flex flex-col items-center">
+        <div className="w-full">
           <GPUGridWrapper gpuClusters={gpuClusters} onClusterClick={handleClusterClick} />
-        </Col>
-      </Row>
-    </Container>
+        </div>
+      </div>
+    </div>
   );
 };
 

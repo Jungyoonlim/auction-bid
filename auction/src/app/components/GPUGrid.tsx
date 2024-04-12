@@ -17,7 +17,7 @@ const GPUGrid: React.FC<Props> = ({ gpuClusters, onClusterClick }) => {
   if (!Array.isArray(gpuClusters)) {
     return <p>No GPU clusters available.</p>;
   }
-
+  // Return the GPU grid
   return (
     <div className="grid">
       {gpuClusters.map((gpu) => (

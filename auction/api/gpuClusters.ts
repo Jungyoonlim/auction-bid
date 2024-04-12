@@ -9,8 +9,8 @@ const gpuClusters: GpuCluster[] = [
       "gpuCount": 8,
       "nodes": 8,
       "currentBid": 2000,
-      "startTime": new Date('June 16, 2024 12:59 AM'),
-      "endTime": new Date('June 16, 2024 8:59 AM'),
+      "startTime": new Date('June 16, 2024 01:00 AM'),
+      "endTime": new Date('June 16, 2024 09:00 AM'),
       "bidPrice": 2000,
       "status": "Available",
       "availableHour": [
