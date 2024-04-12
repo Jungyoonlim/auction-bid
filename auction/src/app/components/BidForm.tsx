@@ -70,55 +70,57 @@ const BidForm: React.FC<BidFormProps> = ({ gpuCluster, onBidSubmit }) => {
     }, [gpuCluster.id]);
   
     return (
-      <Card>
-        <Card.Body>
-          <Card.Title className="text-center text-bold">{gpuCluster.name}</Card.Title>
-          <Card.Text>
-            <p>{gpuCluster.nodes} nodes of {gpuCluster.gpuCount}x {gpuCluster.gpuType}</p>
-            <p>{gpuCluster.startTime.toLocaleString()} - {gpuCluster.endTime.toLocaleString()}</p>
-          </Card.Text>
-          <Form onSubmit={handleBidSubmit}>
-            <Form.Group controlId="bidPrice">
-              <Form.Label>Bid Price (per hour)</Form.Label>
-              <Form.Control
-                type="number"
-                value={bidPrice}
-                onChange={handleBidPriceChange}
-                step="0.01"
-                min={gpuCluster.currentBid || 0}
-                required
-                className="mb-3"
-              />
-            </Form.Group>
-            <Form.Group controlId="availableHours">
-              <Form.Label>Select Hours</Form.Label>
-              <div className="d-flex flex-wrap">
-                {availableHours.map((hour) => (
-                  <Button
-                    key={hour}
-                    variant={selectedHours.includes(hour) ? 'primary' : 'outline-primary'}
-                    className="m-1"
-                    onClick={() => handleHourSelection(hour)}
-                  >
-                    {hour}:00 - {hour + 1}:00
-                    {liveBids[hour] && (
-                      <span className="ml-2">Current Bid: ${liveBids[hour]}</span>
-                    )}
-                  </Button>
-                ))}
+      <div className="max-w-md mx-auto bg-white rounded-lg overflow-hidden md:max-w-lg shadow-lg">
+        <div className="md:flex">
+          <div className="w-full p-4">
+            <div className="mb-4">
+              <h3 className="text-center font-bold text-xl">{gpuCluster.name}</h3>
+              <p className="text-gray-600 text-sm text-center">{gpuCluster.nodes} nodes of {gpuCluster.gpuCount}x {gpuCluster.gpuType}</p>
+              <p className="text-gray-600 text-sm text-center">{gpuCluster.startTime.toLocaleString()} - {gpuCluster.endTime.toLocaleString()}</p>
+            </div>
+            <form onSubmit={handleBidSubmit} className="space-y-3">
+              <div>
+                <label htmlFor="bidPrice" className="text-sm font-medium text-gray-900 block mb-2">Bid Price (per hour)</label>
+                <input
+                  id="bidPrice"
+                  type="number"
+                  value={bidPrice}
+                  onChange={handleBidPriceChange}
+                  step="0.01"
+                  min={gpuCluster.currentBid || 0}
+                  required
+                  className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+                />
               </div>
-            </Form.Group>
-            <Button
-              variant="primary"
-              type="submit"
-              disabled={selectedHours.length === 0 || bidPrice <= (gpuCluster.currentBid || 0)}
-              className="w-100 mt-3"
-            >
-              Place Bid
-            </Button>
-          </Form>
-        </Card.Body>
-      </Card>
+              <div>
+                <label htmlFor="availableHours" className="text-sm font-medium text-gray-900 block mb-2">Select Hours</label>
+                <div className="flex flex-wrap">
+                  {availableHours.map((hour) => (
+                    <button
+                      key={hour}
+                      type="button"
+                      onClick={() => handleHourSelection(hour)}
+                      className={`m-1 px-4 py-2 text-sm font-medium text-white rounded-lg focus:outline-none ${selectedHours.includes(hour) ? 'bg-blue-700 hover:bg-blue-800' : 'bg-gray-300 hover:bg-gray-400'}`}
+                    >
+                      {hour}:00 - {hour + 1}:00
+                      {liveBids[hour] && (
+                        <span className="ml-2 text-gray-200">Current Bid: ${liveBids[hour]}</span>
+                      )}
+                    </button>
+                  ))}
+                </div>
+              </div>
+              <button
+                type="submit"
+                disabled={selectedHours.length === 0 || bidPrice <= (gpuCluster.currentBid || 0)}
+                className="w-full px-4 py-2 bg-blue-600 text-white text-sm font-medium rounded-lg hover:bg-blue-700 focus:outline-none"
+              >
+                Place Bid
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
     );
   };
   
