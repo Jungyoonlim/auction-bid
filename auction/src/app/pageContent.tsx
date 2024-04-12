@@ -2,7 +2,7 @@
 
 import './pageContent.css'; 
 import { GpuCluster } from './types/GpuCluster';
-import {fetchGpuClusters} from '../../api/gpuClusters';
+import { fetchGpuClusters } from '../../api/gpuClusters';
 import React, { useEffect, useState } from 'react';
 import GPUGridWrapper from './components/GPUGridWrapper';
 import { Container, Row, Col } from 'react-bootstrap';
@@ -18,6 +18,7 @@ const PageContent = () => {
     router.push(`/bid-form/${cluster.id}`);
   };
 
+  // Fetch the GPU clusters from the API.
   useEffect(() => {
     const fetchData = async () => {
       const fetchedGpuClusters = await fetchGpuClusters();
@@ -26,6 +27,7 @@ const PageContent = () => {
     fetchData();
   }, []);
 
+  // jsx 
   return (
     <Container className="py-4">
       <h1 className="text-4xl text-center font-bold mb-4">San Francisco Compute Exchange</h1>

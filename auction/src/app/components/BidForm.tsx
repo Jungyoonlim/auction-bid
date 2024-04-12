@@ -4,15 +4,20 @@ import { Form, Button, Card } from 'react-bootstrap';
 import { GpuCluster } from '../types/GpuCluster';
 import { useRouter } from 'next/navigation';
 
+// Interface with the properties expected by the BidForm component.
 interface BidFormProps {
   gpuCluster: GpuCluster;
   onBidSubmit: (gpuCluster: GpuCluster, bidPrice: number) => void;
 }
 
+// A form for placing a bid on a GPU cluster.
 const BidForm: React.FC<BidFormProps> = ({ gpuCluster, onBidSubmit }) => {
   const [bidPrice, setBidPrice] = useState<number>(gpuCluster.currentBid || 0);
   const router = useRouter();
+  // State for the number of hours to bid on.
+  const [hours, setHours] = useState(1);
 
+  // Function to handle changes in the bid price input field. 
   const handleBidPriceChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setBidPrice(parseFloat(event.target.value));
   };
