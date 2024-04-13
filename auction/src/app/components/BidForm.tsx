@@ -133,3 +133,6 @@ const BidForm: React.FC<BidFormProps> = ({ gpuCluster, onBidSubmit }) => {
   };
   
   export default BidForm;
+
+
+ 

@@ -2,7 +2,7 @@
 
 import React from 'react';
 import BidFormWrapper from '../../components/BidFormWrapper';
-import { fetchGpuClusterbyId } from '../../../../api/gpuClusters';
+import { fetchGpuClusterbyId } from '../../../../pages/api/gpuClusters';
 
 // Define the props for the BidFormPage component
 interface BidFormPageProps {

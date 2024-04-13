@@ -1,4 +1,4 @@
-import { GpuCluster } from '../src/app/types/GpuCluster'; 
+import { GpuCluster } from '../../src/app/types/GpuCluster'; 
 
 // Example Array of GPU clusters
 const gpuClusters: GpuCluster[] = [

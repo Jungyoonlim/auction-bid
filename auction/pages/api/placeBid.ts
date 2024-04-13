@@ -1,5 +1,5 @@
 import { NextApiRequest, NextApiResponse } from 'next';
-import pool from '../database';
+import pool from '../../database';
 
 // Interface for PlaceBidRequestBody 
 interface PlaceBidRequestBody {
@@ -78,6 +78,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
       const maxBookingRangeResult = await pool.query(maxBookingRangeQuery, maxBookingRangeValues);
       const maxEndTime = maxBookingRangeResult.rows[0].max_end_time;
 
+      // Check if the selected hours are within the allowed time range
       if (maxEndTime < new Date()) {
         return res.status(400).json({ message: 'Booking is outside the allowed time range' });
       }

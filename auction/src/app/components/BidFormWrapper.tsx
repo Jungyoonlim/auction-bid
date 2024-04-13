@@ -1,20 +1,19 @@
 'use client';
-
 import BidForm from './BidForm';
 import { GpuCluster } from '../types/GpuCluster';
 import { useRouter } from 'next/navigation';
 import styles from './BidFormWrapper.module.css';
 
-// BidFormWrapperProps interface 
+// BidFormWrapperProps interface
 interface BidFormWrapperProps {
   gpuCluster: GpuCluster;
 }
 
-// Handles the submission of a bid of a GPU cluster. 
+// Handles the submission of a bid of a GPU cluster.
 const BidFormWrapper: React.FC<BidFormWrapperProps> = ({ gpuCluster }) => {
-  const router = useRouter(); 
+  const router = useRouter();
 
-  // Handles the submission of a bid of a GPU cluster. 
+  // Handles the submission of a bid of a GPU cluster.
   const handleBidSubmit = async (gpuCluster: GpuCluster, bidPrice: number, selectedHours: number[]) => {
     try {
       const response = await fetch('/api/placeBid', {
@@ -24,11 +23,17 @@ const BidFormWrapper: React.FC<BidFormWrapperProps> = ({ gpuCluster }) => {
         },
         body: JSON.stringify({ gpuClusterId: gpuCluster.id, bidPrice, selectedHours }),
       });
+    
       if (response.ok) {
         alert('Bid placed successfully!');
         router.push('/');
+      } else if (response.status === 400) {
+        const errorData = await response.json();
+        console.error('Error placing bid:', errorData.message);
+        alert('Failed to place bid. Please try again.');
       } else {
-        console.error('Error placing bid:', response.statusText);
+        const errorData = await response.json();
+        console.error('Error placing bid:', errorData.message);
         alert('Failed to place bid. Please try again.');
       }
     } catch (error) {
@@ -41,7 +46,7 @@ const BidFormWrapper: React.FC<BidFormWrapperProps> = ({ gpuCluster }) => {
     <div className={styles.bidFormWrapper}>
       <BidForm gpuCluster={gpuCluster} onBidSubmit={handleBidSubmit} />
     </div>
-  )
+  );
 };
 
 export default BidFormWrapper;

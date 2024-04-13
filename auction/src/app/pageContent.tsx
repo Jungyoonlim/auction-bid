@@ -2,7 +2,7 @@
 
 import './pageContent.css'; 
 import { GpuCluster } from './types/GpuCluster';
-import { fetchGpuClusters } from '../../api/gpuClusters';
+import { fetchGpuClusters } from '../../pages/api/gpuClusters';
 import React, { useEffect, useState } from 'react';
 import GPUGridWrapper from './components/GPUGridWrapper';
 import { useRouter } from 'next/navigation';
