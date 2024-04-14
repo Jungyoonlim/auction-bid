@@ -17,8 +17,7 @@ const BidForm: React.FC<BidFormProps> = ({ gpuCluster, onBidSubmit }) => {
   // State for selected hours to bid.
   const [selectedHours, setSelectedHours] = useState<number[]>([]);
   // State for live bids
-  const [liveBids, setLiveBids] = useState<{ [hour: number]: number }>({});
-
+  const [liveBids, setLiveBids] = useState<{ [hour: number]: {price: number} }>({});
   // Generate an array of available hours based on the start and end time
   const availableHours = Array.from({ length: gpuCluster.endTime.getHours() - gpuCluster.startTime.getHours() + 1 }, (_, i) => i + gpuCluster.startTime.getHours());
 
@@ -111,7 +110,7 @@ const BidForm: React.FC<BidFormProps> = ({ gpuCluster, onBidSubmit }) => {
                       >
                         {hour}:00 - {hour + 1}:00
                         {liveBids[hour] && (
-                          <span className="ml-2 text-gray-200">Current Bid: ${liveBids[hour]}</span>
+                          <span className="ml-2 text-gray-200">Current Bid: ${liveBids[hour].price}</span>
                         )}
                       </button>
                     ))}
@@ -120,7 +119,7 @@ const BidForm: React.FC<BidFormProps> = ({ gpuCluster, onBidSubmit }) => {
                 <button
                   type="submit"
                   disabled={selectedHours.length === 0 || bidPrice <= (gpuCluster.currentBid || 0)}
-                  className="w-full px-4 py-2 bg-blue-600 text-white text-sm font-medium rounded-lg hover:bg-blue-700 focus:outline-none"
+                  className="w-full px-4 py-2 bg-red-600 text-white text-sm font-medium rounded-lg hover:bg-red-700 focus:outline-none"
                 >
                   Place Bid
                 </button>

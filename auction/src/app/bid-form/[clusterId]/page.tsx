@@ -19,7 +19,7 @@ const BidFormPage: React.FC<BidFormPageProps> = async ({ params }) => {
         return <p>Cluster not found</p>; // Display message when cluster is not found
     }
 
-    // JSX Form 
+    // jsx Form 
     return(
         <div>
             <div className="p-5 rounded-lg shadow-md">
