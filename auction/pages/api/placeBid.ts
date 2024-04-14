@@ -57,7 +57,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
         const nextAvailableBlockValues = [gpuClusterId];
         const nextAvailableBlockResult = await pool.query(nextAvailableBlockQuery, nextAvailableBlockValues);
         
-        if (nextAvailableBlockResult.rows.length > 0 ){
+        if (nextAvailableBlockResult.rows.length > 0){
           const { start_time, end_time } = nextAvailableBlockResult.rows[0];
           return res.status(200).json({
             message: 'Bid not placed. Next available block:',

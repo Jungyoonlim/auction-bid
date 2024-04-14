@@ -40,8 +40,11 @@ const BidForm: React.FC<BidFormProps> = ({ gpuCluster, onBidSubmit }) => {
     setBidPrice(parseFloat(event.target.value));
   };
 
+  // Function to handle the submission of the bid form.
   const handleBidSubmit = async (event: React.FormEvent) => {
     event.preventDefault();
+    // Log the function trigger
+    console.log('handleBidSubmit function triggered'); 
     try {
       await onBidSubmit(gpuCluster, bidPrice, selectedHours);
       alert('Bid placed successfully!');

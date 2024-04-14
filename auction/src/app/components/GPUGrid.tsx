@@ -25,8 +25,9 @@ const GPUGrid: React.FC<Props> = ({ gpuClusters, onClusterClick }) => {
           <Card.Body>
             <Card.Title className="gpu-title">{gpu.name}</Card.Title>
             <Card.Text className="gpu-details">
-              <p><strong>{gpu.startTime.toLocaleString()} - {gpu.endTime.toLocaleString()}</strong></p>
-              <p>{gpu.nodes} nodes of {gpu.gpuCount}x {gpu.gpuType}</p>
+              <strong>{gpu.startTime.toLocaleString()} - {gpu.endTime.toLocaleString()}</strong>
+              <br />
+              {gpu.nodes} nodes of {gpu.gpuCount}x {gpu.gpuType}
             </Card.Text>
             <Badge className={`status-badge ${gpu.status.toLowerCase()}`}>
               {gpu.status}
