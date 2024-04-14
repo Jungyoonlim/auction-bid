@@ -15,5 +15,7 @@ export interface GpuCluster {
 
 // Interface for Available Hour
 export interface AvailableHour{
-
+    hour: number;
+    price: number;
 }
+

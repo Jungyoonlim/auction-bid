@@ -7,6 +7,7 @@ interface PlaceBidRequestBody {
   bidPrice: number;
   selectedHours: number[];
 }
+
 // An API route for placing a bid on a GPU cluster.
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
   if (req.method === 'POST') {
@@ -98,7 +99,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
       return res.status(500).json({ message: 'Internal server error' });
     }
   }
-
+  // If not post, return 405 
   return res.status(405).json({ message: 'Method not allowed' });
 }
 

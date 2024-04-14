@@ -13,6 +13,7 @@ const PageContent = () => {
   const [gpuClusters, setGpuClusters] = useState<GpuCluster[]>([]);
   const router = useRouter();
 
+  // handle the click on a cluster. 
   const handleClusterClick = (cluster: GpuCluster) => {
     router.push(`/bid-form/${cluster.id}`);
   };
