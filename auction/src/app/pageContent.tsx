@@ -32,7 +32,8 @@ const PageContent = () => {
     <div className="py-12 px-6 max-w-screen-xl mx-auto shadow-xl rounded-xl bg-white">
       <h3 className="text-5xl font-bold text-center text-gray-800 mb-8" style={{ fontFamily: 'Montserrat, sans-serif' }}>San Francisco Compute Auction House</h3>
       <div className="flex flex-col items-center bg-white p-8 rounded-xl shadow-2xl">
-        <div className="w-full p-6 rounded-lg shadow-lg bg-white">
+        <div className="w-full rounded-lg shadow-lg bg-white">
+          <p className="text-2xl font-semibold text-center text-red-800" style={{ fontFamily: 'Montserrat, sans-serif' }}>Start Bidding</p>
           <GPUGridWrapper gpuClusters={gpuClusters} onClusterClick={handleClusterClick} />
         </div>
       </div>
