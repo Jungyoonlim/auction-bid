@@ -55,7 +55,6 @@ const BidForm: React.FC<BidFormProps> = ({ gpuCluster, onBidSubmit }) => {
     }
   };
 
-
     // Fetch live bids for the selected GPU cluster
     useEffect(() => {
       const fetchLiveBids = async () => {
@@ -121,7 +120,6 @@ const BidForm: React.FC<BidFormProps> = ({ gpuCluster, onBidSubmit }) => {
                 </div>
                 <button
                   type="submit"
-                  disabled={selectedHours.length === 0 || bidPrice <= (gpuCluster.currentBid || 0)}
                   className="w-full px-4 py-2 bg-red-600 text-white text-sm font-medium rounded-lg hover:bg-red-700 focus:outline-none"
                 >
                   Place Bid

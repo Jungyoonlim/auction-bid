@@ -23,20 +23,15 @@ const BidFormWrapper: React.FC<BidFormWrapperProps> = ({ gpuCluster }) => {
         },
         body: JSON.stringify({ gpuClusterId: gpuCluster.id, bidPrice, selectedHours }),
       });
-
+  
+      const data = await response.json();
+  
       if (response.ok) {
-        const data = await response.json();
-        if (data.message === 'Bid placed successfully') {
-          alert('Bid placed successfully!');
-          router.push('/');
-        } else {
-          console.error('Error placing bid:', data.message);
-          alert(data.message);
-        }
+        alert(data.message);
+        router.push('/');
       } else {
-        const errorData = await response.json();
-        console.error('Error placing bid:', errorData.message);
-        alert('Failed to place bid. Please try again.');
+        console.error('Error placing bid:', data.message);
+        alert(data.message);
       }
     } catch (error) {
       console.error('Error placing bid:', error);
