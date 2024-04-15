@@ -95,7 +95,7 @@ const BidForm: React.FC<BidFormProps> = ({ gpuCluster, onBidSubmit }) => {
                     value={bidPrice}
                     onChange={handleBidPriceChange}
                     step="0.01"
-                    min={gpuCluster.currentBid || 0}
+                    min={gpuCluster.currentBid ? gpuCluster.currentBid + 0.01 : 0}
                     required
                     className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-red-500 focus:border-red-500 block w-full p-2.5"
                   />

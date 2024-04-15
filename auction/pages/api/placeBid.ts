@@ -37,9 +37,9 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     const highestBidValues = [gpuClusterId, selectedHours];
     const highestBidResult = await pool.query(highestBidQuery, highestBidValues);
     const highestBid = highestBidResult.rows[0].highest_bid;
-
-    if (bidPrice < highestBid) {
-      return res.status(400).json({ message: 'Bid price must be higher than or equal to the current highest bid' });
+    
+    if (bidPrice <= highestBid) {
+      return res.status(400).json({ message: 'Bid price must be higher than the current highest bid' });
     }
 
     // Insert the bid data into the database
