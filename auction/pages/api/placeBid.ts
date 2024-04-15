@@ -36,6 +36,8 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
       return res.status(404).json({ message: 'GPU cluster not found' });
     }
 
+    console.log('GPU Cluster found, checking bid price'); 
+
     // Check if the bid price is higher than or equal to the current highest bid
     const highestBidQuery = `
       SELECT COALESCE(MAX(bid_price), 0) AS highest_bid 
@@ -48,10 +50,13 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     const highestBid = highestBidResult.rows[0].highest_bid;
 
     if (bidPrice <= highestBid) {
+      console.log('Bid price is higher than the highest bid'); 
       await pool.query('ROLLBACK');
       await client.release(); 
       return res.status(400).json({ message: 'Bid price must be higher than the current highest bid' });
     }
+
+    console.log('Bid price is valid, inserting bid data.');
 
     // Insert the bid data into the database
     const insertBidQuery = `
@@ -67,6 +72,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     // Release the client back to the pool
     await client.release();
 
+    console.log('Bid placed successfully');
     // Return 200 status code and a success message
     return res.status(200).json({ message: 'Bid placed successfully' });
   } catch (error) {

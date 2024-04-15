@@ -27,6 +27,7 @@ const BidFormWrapper: React.FC<BidFormWrapperProps> = ({ gpuCluster }) => {
       const data = await response.json();
   
       if (response.ok) {
+        console.log('Bid placed successfully:', data.message);
         alert(data.message);
         router.push('/');
       } else {
