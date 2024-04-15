@@ -1,6 +1,6 @@
 'use client';
+
 import React, { useState, useEffect } from 'react';
-import { Form, Button, Card } from 'react-bootstrap';
 import { GpuCluster } from '../types/GpuCluster';
 import { useRouter } from 'next/navigation';
 
@@ -12,14 +12,16 @@ interface BidFormProps {
 
 // A form for placing a bid on a GPU cluster.
 const BidForm: React.FC<BidFormProps> = ({ gpuCluster, onBidSubmit }) => {
+  // State for the bid price
   const [bidPrice, setBidPrice] = useState<number>(gpuCluster.currentBid || 0);
+  // Router
   const router = useRouter();
-  // State for selected hours to bid.
+  // State for selected hours to bid
   const [selectedHours, setSelectedHours] = useState<number[]>([]);
   // State for live bids
   const [liveBids, setLiveBids] = useState<{ [hour: number]: {price: number} }>({});
   // Generate an array of available hours based on the start and end time
-  const availableHours = Array.from({ length: gpuCluster.endTime.getHours() - gpuCluster.startTime.getHours() + 1 }, (_, i) => i + gpuCluster.startTime.getHours());
+  const availableHours = Array.from({ length: gpuCluster.endTime.getHours() - gpuCluster.startTime.getHours() }, (_, i) => i + gpuCluster.startTime.getHours());
 
   // move back to the main page button
   const handleBackToMainPage = () => {
@@ -55,25 +57,25 @@ const BidForm: React.FC<BidFormProps> = ({ gpuCluster, onBidSubmit }) => {
     }
   };
 
-    // Fetch live bids for the selected GPU cluster
-    useEffect(() => {
-      const fetchLiveBids = async () => {
-        try {
-          const response = await fetch(`/api/getLiveBids?gpuClusterId=${gpuCluster.id}`);
-          const data = await response.json();
-          setLiveBids(data.liveBids);
-        } catch (error) {
-          console.error('Error fetching live bids:', error);
-        }
-      };
+  // Fetch live bids for the selected GPU cluster
+  useEffect(() => {
+    const fetchLiveBids = async () => {
+      try {
+        const response = await fetch(`/api/getLiveBids?gpuClusterId=${gpuCluster.id}`);
+        const data = await response.json();
+        setLiveBids(data.liveBids);
+      } catch (error) {
+        console.error('Error fetching live bids:', error);
+      }
+    };
   
-      fetchLiveBids();
-      const interval = setInterval(fetchLiveBids, 5000); // Fetch live bids every 5 seconds
+    fetchLiveBids();
+    const interval = setInterval(fetchLiveBids, 5000); // Fetch live bids every 5 seconds
   
-      return () => {
-        clearInterval(interval);
-      };
-    }, [gpuCluster.id]);
+    return () => {
+      clearInterval(interval);
+    };
+  }, [gpuCluster.id]);
   
     return (
       <div className="max-w-md mx-auto bg-white rounded-lg overflow-hidden md:max-w-lg shadow-lg">

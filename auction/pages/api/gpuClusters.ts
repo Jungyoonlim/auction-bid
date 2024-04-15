@@ -42,7 +42,7 @@ const gpuClusters: GpuCluster[] = [
       "gpuType": "H100",
       "gpuCount": 16,
       "nodes": 8,
-      "currentBid": 2000,
+      "currentBid": 2500,
       "startTime": new Date('July 2, 2024 4:00 PM'),
       "endTime": new Date('June 2, 2024 10:00 PM'),
       "bidPrice": 2000,
