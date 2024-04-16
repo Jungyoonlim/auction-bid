@@ -45,7 +45,6 @@ const BidForm: React.FC<BidFormProps> = ({ gpuCluster, onBidSubmit }) => {
   // Function to handle the submission of the bid form.
   const handleBidSubmit = async (event: React.FormEvent) => {
     event.preventDefault();
-    // Log the function trigger
     console.log('handleBidSubmit function triggered'); 
     try {
       await onBidSubmit(gpuCluster, bidPrice, selectedHours);
@@ -96,8 +95,8 @@ const BidForm: React.FC<BidFormProps> = ({ gpuCluster, onBidSubmit }) => {
                     type="number"
                     value={bidPrice}
                     onChange={handleBidPriceChange}
-                    step="0.01"
-                    min={gpuCluster.currentBid ? gpuCluster.currentBid + 0.01 : 0}
+                    step="10"
+                    min={gpuCluster.currentBid ? gpuCluster.currentBid + 10 : 0}
                     required
                     className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-red-500 focus:border-red-500 block w-full p-2.5"
                   />
