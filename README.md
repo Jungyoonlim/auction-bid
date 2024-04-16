@@ -10,7 +10,8 @@ Welcome to the SF Compute Exchange!
 ## Components
 
 - GPU Cluster Card
-- Bid Form 
+- Bid Form
+- Search Bar
 
 
 ## Work In Progress
@@ -26,6 +27,7 @@ The project is still in development and is not ready for production use.
 - TypeScript 
 - Next.js 
 - React/React Bootstrap
+- PostgreSQL
 
 ## Installation 
 
