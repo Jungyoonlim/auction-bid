@@ -1,6 +1,6 @@
 # GPU Auction 
 
-Welcome to the SF Compute Exchange. It allows you to bid on compute hourly. 
+Welcome to the SF Compute Exchange! 
 
 ## Features
 
@@ -66,6 +66,7 @@ To use this project, follow these steps:
 6. Open your browser and visit `http://localhost:3000` to see the application running.
 
 Note: Make sure you have Node.js and PostgreSQL installed on your machine before running the project.
+
 ## License
 This project is licensed under the MIT License - see the LICENSE file for details. 
 
