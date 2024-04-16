@@ -29,11 +29,10 @@ const PageContent = () => {
 
   // jsx 
   return (
-    <div className="py-12 px-6 max-w-screen-xl mx-auto shadow-xl rounded-xl bg-white">
-      <h3 className="text-5xl font-bold text-center text-gray-800 mb-8" style={{ fontFamily: 'Montserrat, sans-serif' }}>San Francisco Compute Auction House</h3>
-      <div className="flex flex-col items-center bg-white p-8 rounded-xl shadow-2xl">
-        <div className="w-full rounded-lg shadow-lg bg-white">
-          <p className="text-2xl font-semibold text-center text-red-800" style={{ fontFamily: 'Montserrat, sans-serif' }}>Start Bidding</p>
+    <div className="py-12 px-6 max-w-screen-xl mx-auto bg-white rounded-xl shadow-xl">
+      <h3 className="text-6xl font-bold text-center text-black mb-12" style={{ fontFamily: 'Playfair Display, serif' }}>San Francisco Compute Exchange</h3>
+      <div className="flex flex-col items-center bg-gray-100 p-10 rounded-xl shadow-2xl">
+        <div className="w-full rounded-lg shadow-lg bg-white border-4 border-gold-500">
           <GPUGridWrapper gpuClusters={gpuClusters} onClusterClick={handleClusterClick} />
         </div>
       </div>
