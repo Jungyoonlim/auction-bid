@@ -1,26 +1,25 @@
 # GPU Auction 
 
-Welcome to the SF Compute Exchange! 
+Welcome to the SF Compute Exchange! This project is a simple auction house system for GPU clusters, allowing customers to view available compute and place bids on them. 
 
-## Features
+## Key Features
 
-- View available GPU clusters and their details. 
-- Place bids on your desired compute for specific hourly slots.
+- Browse and search available GPU clusters with details.
+- Place bids on specific GPU compute for desired hourly slots. 
+- Intuitive and user-friendly interface! 
 
 ## Components
 
-- GPU Cluster Card
-- Bid Form
-- Search Bar
+- **GPU Cluster Card**: Displays the details of a GPU cluster, including the number of GPUs, memory, and hourly rate. 
+- **Bid Form**: Allows users to place bids on a specific GPU cluster for desired hourly slots. 
+- **Search Bar**: Enables users to search for GPU clusters by name or location. 
 
 
-## Work In Progress
+## Under the Hood
 
-The project is still in development and is not ready for production use. 
-
-### Features to be added. 
-- Bid History 
-- User Dashboard 
+- **Auction System Logic** 
+- **Database Schema**
+- **API Endpoints**
 
 ## Technologies Used
 
@@ -29,7 +28,22 @@ The project is still in development and is not ready for production use.
 - React/React Bootstrap
 - PostgreSQL
 
-## Installation 
+## Roadmap 
+
+While the core functionality of the auction house system is in place, there are still many features and improvements that can be made. 
+
+### Ideas for the future 
+- Bid History 
+- User Dashboard 
+- Bid Cancellation
+- Handling partial bids 
+- Real-time Updates 
+- Optimize the db queries  
+- User Auth 
+- Comprehensive Testing 
+
+
+## Getting Started  
 
 To use this project, follow these steps:
 
@@ -68,6 +82,11 @@ To use this project, follow these steps:
 6. Open your browser and visit `http://localhost:3000` to see the application running.
 
 Note: Make sure you have Node.js and PostgreSQL installed on your machine before running the project.
+
+## Contributing
+
+If you'd like to contribute, please fork the repository and use a feature branch. Pull requests are warmly welcomed.
+
 
 ## License
 This project is licensed under the MIT License - see the LICENSE file for details. 
