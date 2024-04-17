@@ -18,6 +18,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
 
   const { gpuClusterId, bidPrice, selectedHours } = req.body as PlaceBidRequestBody;
 
+  // Connect to the database
   const client = await pool.connect();
 
   try {

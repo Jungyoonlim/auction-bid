@@ -18,10 +18,18 @@ const BidForm: React.FC<BidFormProps> = ({ gpuCluster, onBidSubmit }) => {
   const router = useRouter();
   // State for selected hours to bid
   const [selectedHours, setSelectedHours] = useState<number[]>([]);
+
   // State for live bids
   const [liveBids, setLiveBids] = useState<{ [hour: number]: {price: number} }>({});
+
   // Generate an array of available hours based on the start and end time
-  const availableHours = Array.from({ length: gpuCluster.endTime.getHours() - gpuCluster.startTime.getHours() }, (_, i) => i + gpuCluster.startTime.getHours());
+  // If the start and end time are not available, return an empty array
+  const availableHours = gpuCluster?.endTime?.getHours() && gpuCluster?.startTime?.getHours()
+    ? Array.from(
+        { length: gpuCluster.endTime.getHours() - gpuCluster.startTime.getHours() },
+        (_, i) => i + gpuCluster.startTime.getHours()
+      )
+    : [];
 
   // move back to the main page button
   const handleBackToMainPage = () => {

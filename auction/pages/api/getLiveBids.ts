@@ -20,6 +20,8 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     }
 
     const liveBids: { [hour: number]: AvailableHour } = {};
+
+    // Loop through each available hour and add it to the liveBids object 
     gpuCluster.availableHour.forEach((availableHour) => {
       liveBids[availableHour.hour] = availableHour;
     });
