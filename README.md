@@ -10,7 +10,8 @@ Welcome to the SF Compute Exchange!
 ## Components
 
 - GPU Cluster Card
-- Bid Form 
+- Bid Form
+- Search Bar
 
 
 ## Work In Progress
@@ -26,6 +27,7 @@ The project is still in development and is not ready for production use.
 - TypeScript 
 - Next.js 
 - React/React Bootstrap
+- PostgreSQL
 
 ## Installation 
 
@@ -33,7 +35,7 @@ To use this project, follow these steps:
 
 1. Clone the repository:
    ```
-   git clone https://github.com/your-username/gpu-auction.git
+   git clone https://github.com/jungyoonlim/gpu-auction.git
    ```
 
 2. Navigate to the project directory:
