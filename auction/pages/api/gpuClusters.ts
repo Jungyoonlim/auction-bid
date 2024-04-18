@@ -1,5 +1,5 @@
 import { GpuCluster } from '../../src/app/types/GpuCluster'; 
-import db from "../../database"; 
+import pool from "../../database"; 
 
 // Example Array of GPU clusters
 const gpuClusters: GpuCluster[] = [
@@ -66,8 +66,13 @@ const gpuClusters: GpuCluster[] = [
 export async function fetchGpuClusterbyId(clusterId: string): Promise<GpuCluster | undefined> {
   try {
     const query = 'SELECT * FROM gpu_clusters WHERE id = $1';
-    const result = await db.oneOrNone(query, [clusterId]);
-    return result as GpuCluster;
+    const result = await pool.query(query, [clusterId]);
+
+    if (result.rows.length === 1) {
+      return result.rows[0] as GpuCluster;
+    } else {
+      return undefined;
+    }
   } catch (error) {
     console.error('Error executing query:', error);
     throw error;

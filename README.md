@@ -26,14 +26,13 @@ Welcome to the SF Compute Exchange! This project is a simple auction house syste
 - TypeScript 
 - Next.js 
 - React/React Bootstrap
+- Tailwind CSS 
 - PostgreSQL
 
 ## Roadmap 
 
-While the core functionality of the auction house system is in place, there are still many features and improvements that can be made. 
-
-### Ideas for the future 
-- Bid History 
+While the core functionality of the auction house system is in place, there are still many features and improvements planned for the future: 
+- Bid History and Dashboard
 - User Dashboard 
 - Bid Cancellation
 - Handling partial bids 
