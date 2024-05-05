@@ -1,4 +1,4 @@
-import { GpuCluster } from '../../src/app/types/GpuCluster'; 
+import { GpuCluster, AvailableHour } from '../../src/app/types/GpuCluster'; 
 import pool from "../../database"; 
 
 // Example Array of GPU clusters

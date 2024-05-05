@@ -23,7 +23,7 @@ const BidForm: React.FC<BidFormProps> = ({ gpuCluster, onBidSubmit }) => {
   const [liveBids, setLiveBids] = useState<{ [hour: number]: {price: number} }>({});
 
   // Generate an array of available hours based on the start and end time
-  // If the start and end time are not available, return an empty array
+  // If the start and end time are not available, return an empty array. 
   const availableHours = gpuCluster?.endTime?.getHours() && gpuCluster?.startTime?.getHours()
     ? Array.from(
         { length: gpuCluster.endTime.getHours() - gpuCluster.startTime.getHours() },

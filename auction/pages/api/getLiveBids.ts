@@ -1,6 +1,6 @@
 import { NextApiRequest, NextApiResponse } from 'next';
 import { fetchGpuClusterbyId } from './gpuClusters';
-import { GpuCluster, AvailableHour } from '../src/app/types/GpuCluster';
+import { GpuCluster, AvailableHour } from '../../src/app/types/GpuCluster';
 
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
   if (req.method === 'GET') {
