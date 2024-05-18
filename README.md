@@ -1,6 +1,6 @@
 # GPU Auction 
 
-Welcome to the SF Compute Exchange! This project is a simple auction house system for GPU clusters, allowing customers to view available compute and place bids on them. 
+Welcome to the GPU Exchange! This project is a simple auction house system for GPU clusters, allowing customers to view available compute and place bids on them. 
 
 ## Key Features
 
